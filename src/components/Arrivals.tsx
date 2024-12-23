@@ -41,13 +41,13 @@ const NewArrival = () => {
         <div className="relative group col-span-1 h-[200px] lg:w-[670px] lg:h-[284px] overflow-hidden rounded-lg">
           <Image
             src="/women.png"
-            alt="Women's Collections"
+            alt="Women&#39;s Collections"
             layout="fill"
             objectFit="cover"
             className="transition-transform duration-300 group-hover:scale-110"
           />
           <div className="absolute bottom-4 left-4 text-white">
-            <h2 className="text-lg font-bold">Women's Collections</h2>
+            <h2 className="text-lg font-bold">Women&#39;s Collections</h2>
             <p className="text-sm mb-2">
               Featured collections that give you another vibe.
             </p>

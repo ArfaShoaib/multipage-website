@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const Explore = () => {
   const products = [
@@ -55,17 +56,7 @@ const Explore = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Convert timeLeft to Days, Hours, Minutes, and Seconds
-  const formatTime = () => {
-    const days = Math.floor(timeLeft / (60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (60 * 60 * 24)) / (60 * 60));
-    const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
-    const seconds = timeLeft % 60;
-
-    return { days, hours, minutes, seconds };
-  };
-
-  const { days, hours, minutes, seconds } = formatTime();
+ 
 
   // Slider Navigation Logic
   const handlePrev = () => {
@@ -148,9 +139,11 @@ const Explore = () => {
             >
               <div className="bg-white rounded-lg p-4 h-full relative">
                 <div className="relative">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
+                    width={900}
+                    height={0}
                     className="w-full h-[200px] xs:h-[220px] sm:h-[250px] lg:h-[270px] object-cover rounded bg-gray-200 mx-auto transition-transform duration-300 ease-in-out transform hover:scale-105"
                   />
                   <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">

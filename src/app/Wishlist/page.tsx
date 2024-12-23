@@ -1,9 +1,10 @@
 'use client'
+import Image from "next/image";
 import { useState } from "react";
 
 import React from 'react'
 
-const page = () => {
+const Page = () => {
       // Wishlist state with initial products
   const [wishlist, setWishlist] = useState([
     { id: 1, name: "Gucci Duffle Bag", price: 960, image: "/images/bag.png" },
@@ -36,7 +37,7 @@ const page = () => {
           </button>
 
           {/* Product Image */}
-          <img
+          <Image
             src={item.image}
             alt={item.name}
             className="w-full h-40 object-cover rounded-md mb-4"
@@ -57,4 +58,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
