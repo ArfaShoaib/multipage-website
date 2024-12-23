@@ -101,6 +101,8 @@ const Sale = () => {
             <Image
               src={product.image}
               alt={product.name}
+              width={900}
+              height={0}
               className="w-full h-40 object-contain mb-4"
             />
             <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
