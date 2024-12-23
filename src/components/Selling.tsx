@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaStar, FaHeart } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const Selling = () => {
   const products = [
@@ -141,7 +142,7 @@ const Selling = () => {
 
                 {/* Product Image */}
                 <div className="relative overflow-hidden">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
                     className="w-full h-48 sm:h-56 md:h-64 object-cover rounded bg-gray-200 mx-auto transition-transform duration-300 ease-in-out group-hover:scale-105"

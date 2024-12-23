@@ -1,6 +1,5 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
-import { FaStar, FaHeart } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
 const Sale = () => {
@@ -43,9 +42,7 @@ const Sale = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(86400);
-  const [wishlist, setWishlist] = useState<number[]>([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -65,26 +62,6 @@ const Sale = () => {
   };
 
   const { days, hours, minutes, seconds } = formatTime();
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? products.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === products.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const toggleWishlist = (id: number) => {
-    setWishlist((prevWishlist) =>
-      prevWishlist.includes(id)
-        ? prevWishlist.filter((productId) => productId !== id)
-        : [...prevWishlist, id]
-    );
-  };
 
   return (
     <div className="max-w-screen-xl mx-auto px-4 py-4 mt-8 sm:mt-16 md:mt-28">
@@ -113,9 +90,31 @@ const Sale = () => {
         </div>
       </div>
 
-      {/* Product Slider */}
-      <div className="relative overflow-hidden">
-        {/* Products go here */}
+      {/* Products Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow"
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-40 object-contain mb-4"
+            />
+            <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+            <div className="text-red-500 font-bold mb-1">{product.price}</div>
+            <div className="text-gray-500 line-through text-sm mb-1">
+              {product.oldPrice}
+            </div>
+            <div className="text-green-600 text-sm font-medium mb-3">
+              {product.discount}
+            </div>
+            <Button className="w-full bg-red-500 text-white hover:bg-red-600">
+              Add to Cart
+            </Button>
+          </div>
+        ))}
       </div>
 
       <div className="flex justify-center mt-6 md:mt-10">
