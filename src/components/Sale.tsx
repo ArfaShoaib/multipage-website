@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const Sale = () => {
   const products = [
@@ -97,7 +98,7 @@ const Sale = () => {
             key={product.id}
             className="border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow"
           >
-            <img
+            <Image
               src={product.image}
               alt={product.name}
               className="w-full h-40 object-contain mb-4"
