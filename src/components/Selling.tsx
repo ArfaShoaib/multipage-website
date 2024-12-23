@@ -145,6 +145,8 @@ const Selling = () => {
                   <Image
                     src={product.image}
                     alt={product.name}
+                    width={900}
+                    height={0}
                     className="w-full h-48 sm:h-56 md:h-64 object-cover rounded bg-gray-200 mx-auto transition-transform duration-300 ease-in-out group-hover:scale-105"
                   />
                   <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
