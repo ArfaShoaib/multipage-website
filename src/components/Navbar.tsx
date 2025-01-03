@@ -7,10 +7,9 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false); // State for user dropdown
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,7 +17,6 @@ const Navbar = () => {
 
   const toggleUserMenu = () => {
     setIsUserMenuOpen(!isUserMenuOpen);
-    console.log("User menu state:", isUserMenuOpen);
   };
 
   return (
@@ -54,6 +52,16 @@ const Navbar = () => {
           lg:translate-x-0 transition-transform duration-300 ease-in-out
           ${isMenuOpen ? "visible" : "invisible"} lg:visible`}
         >
+          {/* Close button for mobile menu */}
+          {isMenuOpen && (
+            <button 
+              onClick={toggleMenu}
+              className="absolute top-4 right-4 text-black lg:hidden"
+            >
+              <FaTimes className="w-6 h-6" />
+            </button>
+          )}
+          
           <Link href="/" className="py-2 lg:py-0 text-black hover:text-gray-600 hover:underline hover:underline-offset-4">
             Home
           </Link>
@@ -72,7 +80,7 @@ const Navbar = () => {
         <div
           className={`fixed bottom-0 left-0 right-0 bg-white p-4 z-20 flex justify-around
           lg:static lg:flex lg:items-center lg:space-x-4 xl:space-x-6 lg:mr-10 xl:mr-20
-          ${isMenuOpen ? "translate-y-full" : "translate-y-0"} lg:translate-y-0 transition-transform duration-300 ease-in-out`}
+          ${isMenuOpen ? "translate-y-0" : "translate-y-0"} lg:translate-y-0 transition-transform duration-300 ease-in-out`}
         >
           {/* Desktop Search */}
           <div className="hidden lg:flex items-center border-2 rounded px-2 py-2 bg-gray-200">

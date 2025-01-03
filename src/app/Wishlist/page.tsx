@@ -40,6 +40,8 @@ const Page = () => {
           <Image
             src={item.image}
             alt={item.name}
+            width={0}
+            height={0}
             className="w-full h-40 object-cover rounded-md mb-4"
           />
 
